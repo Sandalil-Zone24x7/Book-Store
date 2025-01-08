@@ -38,4 +38,44 @@ public class Order {
 
     @Column(name = "total_price")
     private Integer totalPrice;
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Integer getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }

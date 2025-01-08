@@ -1,23 +1,27 @@
-package com.example.bookstore.services;
+package com.example.bookstore.service.impl;
 
 import com.example.bookstore.repository.OrderItemRepository;
 import com.example.bookstore.repository.OrderRepository;
+import com.example.bookstore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrderService {
+public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderItemRepository orderItemRepository;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository, OrderItemRepository orderItemRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderItemRepository
+            orderItemRepository) {
+
         this.orderRepository = orderRepository;
         this.orderItemRepository = orderItemRepository;
     }
 
-    public int getOrderTotal(Long id){
+    public Integer getOrderTotal(Long id){
+
         return this.orderRepository.findOrderTotalById(id);
     }
 

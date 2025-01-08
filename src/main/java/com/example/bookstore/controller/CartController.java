@@ -1,10 +1,11 @@
 package com.example.bookstore.controller;
 
-import com.example.bookstore.entity.Book;
-import com.example.bookstore.entity.Cart;
-import com.example.bookstore.entity.Customer;
-import com.example.bookstore.services.CartService;
+import com.example.bookstore.service.CartService;
+import com.example.bookstore.service.dto.CartDto;
+import com.example.bookstore.service.impl.CartServiceImpl;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,16 +18,21 @@ import java.util.Optional;
 @RequestMapping("api/v1/carts/")
 public class CartController {
 
-    private CartService cartService;
+    private final CartService cartService;
 
     @Autowired
-    public CartController(CartService cartService) {
-        this.cartService = cartService;
+    public CartController(CartServiceImpl cartServiceImpl) {
+        this.cartService = cartServiceImpl;
     }
 
-    @PutMapping
-    public void confirmCart() {
-
+    @PatchMapping ("/confirm/{id}")
+    public ResponseEntity<Boolean> confirmCart(@PathVariable("id") Long id) {
+        try{
+            Boolean confirmed = cartService.confirmCart(id);
+            return ResponseEntity.ok(confirmed);
+        } catch(EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping
@@ -34,14 +40,16 @@ public class CartController {
 
     }
 
-    @GetMapping
-    public void getCartItems(Long customerId) {
+    @GetMapping("/items/{id}")
+    public ResponseEntity<CartDto> getCartItems(@PathVariable("id") Long cartId) {
+
+        try {
+            CartDto cartDto = cartService.getCartItems(cartId);
+            return ResponseEntity.ok(cartDto);
+        } catch (EntityNotFoundException e) {
+            return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
 
     }
-
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Cart> getCart(@PathVariable Long id) {
-//        cartService.getCart(id);
-//    }
 
 }

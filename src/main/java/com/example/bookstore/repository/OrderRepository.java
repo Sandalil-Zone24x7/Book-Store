@@ -11,4 +11,5 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     @Query("SELECT o.totalPrice FROM Order o WHERE o.id = :id")
     public Integer findOrderTotalById(@Param("id") Long id);
+
 }

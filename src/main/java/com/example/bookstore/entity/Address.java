@@ -40,5 +40,59 @@ public class Address {
     private String country;
 
 
+    public Long getAddressId() {
+        return addressId;
+    }
 
+    public void setAddressId(Long addressId) {
+        this.addressId = addressId;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public Integer getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(Integer postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 }

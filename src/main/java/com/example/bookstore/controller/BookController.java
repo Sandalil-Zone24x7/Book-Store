@@ -1,8 +1,11 @@
 package com.example.bookstore.controller;
 
 import com.example.bookstore.entity.Book;
-import com.example.bookstore.services.BookService;
+import com.example.bookstore.service.BookService;
+import com.example.bookstore.service.dto.BookDto;
+import com.example.bookstore.service.impl.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,13 +22,14 @@ public class BookController {
     private final BookService bookService;
 
     @Autowired
-    public BookController(BookService bookService) {
+    public BookController(BookServiceImpl bookService) {
         this.bookService = bookService;
     }
 
     @PostMapping
-    public Book createBook(@RequestBody Book book) {
-        return bookService.createBook(book);
+    public ResponseEntity<BookDto> createBook(@RequestBody BookDto bookDto) {
+        BookDto createdBook = bookService.createBook(bookDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdBook);
     }
 
     @GetMapping
@@ -47,7 +51,5 @@ public class BookController {
         }
         return ResponseEntity.notFound().build();
     }
-
-
 
 }

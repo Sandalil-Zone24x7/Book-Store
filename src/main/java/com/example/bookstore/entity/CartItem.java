@@ -31,4 +31,43 @@ public class CartItem {
     @Column(name = "cart_item_price")
     private int cartItemPrice;
 
+    public Long getCartItemId() {
+        return cartItemId;
+    }
+
+    public void setCartItemId(Long cartItemId) {
+        this.cartItemId = cartItemId;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public int getQuanity() {
+        return quanity;
+    }
+
+    public void setQuanity(int quanity) {
+        this.quanity = quanity;
+    }
+
+    public int getCartItemPrice() {
+        return cartItemPrice;
+    }
+
+    public void setCartItemPrice(int cartItemPrice) {
+        this.cartItemPrice = cartItemPrice;
+    }
 }
