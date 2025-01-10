@@ -1,8 +1,6 @@
 package com.example.bookstore.service.dto;
 
-import com.example.bookstore.entity.Cart;
 import com.example.bookstore.entity.CartItem;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
