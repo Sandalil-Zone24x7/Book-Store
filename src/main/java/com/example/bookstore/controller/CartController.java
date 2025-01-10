@@ -35,11 +35,6 @@ public class CartController {
         }
     }
 
-    @GetMapping
-    public void getCartTotalPrice() {
-
-    }
-
     @GetMapping("/items/{id}")
     public ResponseEntity<CartDto> getCartItems(@PathVariable("id") Long cartId) {
 

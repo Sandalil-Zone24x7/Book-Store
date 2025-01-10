@@ -13,9 +13,6 @@ import java.util.List;
  * The class represents a cart in the DB
  */
 @AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "cart")
 public class Cart {
@@ -45,10 +42,7 @@ public class Cart {
         this.isActive = true;
     }
 
-    /**
-     * Getters and setters for the entity
-     * @return
-     */
+   //Getters and Setters
     public Long getCartId() {
         return cartId;
     }

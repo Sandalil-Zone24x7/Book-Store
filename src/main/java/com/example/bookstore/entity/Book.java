@@ -40,6 +40,7 @@ public class Book {
         this.availableNumberOfCopies = availableNumberOfCopies;
     }
 
+    //Getters and setters
     public Long getBookId() {
         return bookId;
     }

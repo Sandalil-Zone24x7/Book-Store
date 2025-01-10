@@ -59,6 +59,11 @@ public class CartServiceImpl implements CartService {
         }
     }
 
+    /**
+     * Set the cart as inactive when a cart is confirmed and order is placed.
+     * @param cartId
+     * @return
+     */
     public Boolean confirmCart(Long cartId) {
 
         int affectedRows = cartRepository.setCartInactive(cartId);

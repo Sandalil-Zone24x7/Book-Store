@@ -43,6 +43,12 @@ public class CustomerServiceImpl implements CustomerService {
         return createdCustomer;
     }
 
+    /**
+     * Creates and returns a customer object with the cart details to display.
+     * @param id
+     * @return
+     */
+
     public CustomerDto getCustomerToDisplay(Long id){
 
         Optional<Customer> optionalCustomer = customerRepository.findById(id);

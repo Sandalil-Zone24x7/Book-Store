@@ -13,6 +13,7 @@ import java.util.Optional;
 public class CartHelper {
 
     public CartDto convertToCartDto(Optional<List<CartItem>> cartItems, Cart cart) {
+
         return new CartDto(cart.getCartId(), cart.getCustomerId(), cartItems);
     }
 

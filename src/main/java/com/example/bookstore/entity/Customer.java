@@ -30,10 +30,6 @@ public class Customer {
     @Column(name = "customer_name")
     private String customerName;
 
-    @OneToOne
-    @JoinColumn(name = "address_id", nullable = true)
-    private Address address;
-
     @Column(nullable = true)
     public String password;
 
@@ -51,14 +47,6 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     public String getCustomerName() {
